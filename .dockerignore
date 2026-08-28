@@ -1,0 +1,15 @@
+node_modules
+.wrangler
+.git
+.gitignore
+*.md
+package-lock.json
+package.json
+tsconfig.json
+worker-configuration.d.ts
+src
+container_src
+.dev.vars
+.dev.vars.*
+.env
+.env.*
