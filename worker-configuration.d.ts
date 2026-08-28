@@ -3,6 +3,16 @@
 // Runtime types generated with workerd@1.20260811.1 2025-10-08 nodejs_compat
 interface __BaseEnv_Env {
 	MY_CONTAINER: DurableObjectNamespace<import("./src/index").MyContainer>;
+	/** Tailscale auth key (set via `wrangler secret put TS_AUTHKEY`) */
+	TS_AUTHKEY?: string;
+	/** Nested VM root password (set via `wrangler secret put VM_ROOT_PASSWORD`) */
+	VM_ROOT_PASSWORD?: string;
+	/** Nested VM SSH public key (set via `wrangler secret put VM_SSH_PUBKEY`) */
+	VM_SSH_PUBKEY?: string;
+	/** Tailscale hostname for this container */
+	TS_HOSTNAME?: string;
+	/** Nested VM hostname */
+	VM_NAME?: string;
 }
 declare namespace Cloudflare {
 	interface GlobalProps {

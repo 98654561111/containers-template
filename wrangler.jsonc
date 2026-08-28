@@ -11,7 +11,10 @@
 		{
 			"class_name": "MyContainer",
 			"image": "./Dockerfile",
-			"max_instances": 10
+			// QEMU nested VM needs max resources available on Cloudflare Containers
+			// standard-4: 4 vCPU, 12 GiB memory, 20 GB disk
+			"instance_type": "standard-4",
+			"max_instances": 2
 		}
 	],
 	"durable_objects": {
@@ -28,5 +31,13 @@
 			"tag": "v1"
 		}
 	],
+	// Optional secrets / vars passed into the Worker, then forwarded to the container:
+	//   npx wrangler secret put TS_AUTHKEY
+	//   npx wrangler secret put VM_ROOT_PASSWORD
+	//   npx wrangler secret put VM_SSH_PUBKEY
+	"vars": {
+		"TS_HOSTNAME": "modelscope-ubuntu",
+		"VM_NAME": "ubuntu-vm"
+	},
 	"upload_source_maps": true
 }
